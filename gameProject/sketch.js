@@ -1,5 +1,3 @@
-
-// now in git 2
 var topSkyColor, bottomSkyColor, newSkyColor;
 
 var leftBorder, rightBorder;
