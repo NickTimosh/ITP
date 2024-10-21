@@ -28,22 +28,22 @@ var enemies;
 
 var jumpSound;
 
-function preload()
-{
-    soundFormats('mp3','wav');
-    
-    //load your sounds here
-    jumpSound = loadSound('assets/retro-jump-1-236684.mp3');
-    jumpSound.setVolume(0.1);
-    coinSound = loadSound('assets/classic-game-action-positive-3-224405.mp3');
-    coinSound.setVolume(0.1);
-    loseSound = loadSound('assets/classic-game-action-negative-3-224421.mp3');
-    loseSound.setVolume(0.1);
-    gameOverSound = loadSound('assets/8-bit-video-game-lose-sound-version-1-145828.mp3');
-    gameOverSound.setVolume(0.1);
-    winSound = loadSound('assets/win-sfx-38507.mp3');
-    winSound.setVolume(0.1);
-}
+//function preload()
+//{
+//    soundFormats('mp3','wav');
+//    
+//    //load your sounds here
+//    jumpSound = loadSound('assets/retro-jump-1-236684.mp3');
+//    jumpSound.setVolume(0.1);
+//    coinSound = loadSound('assets/classic-game-action-positive-3-224405.mp3');
+//    coinSound.setVolume(0.1);
+//    loseSound = loadSound('assets/classic-game-action-negative-3-224421.mp3');
+//    loseSound.setVolume(0.1);
+//    gameOverSound = loadSound('assets/8-bit-video-game-lose-sound-version-1-145828.mp3');
+//    gameOverSound.setVolume(0.1);
+//    winSound = loadSound('assets/win-sfx-38507.mp3');
+//    winSound.setVolume(0.1);
+//}
 
 function setup()
 {
@@ -197,7 +197,7 @@ function keyPressed()
         {
             isFalling = true;
             gameChar_y -= 100;
-            jumpSound.play();
+//            jumpSound.play();
         }
 
 }
@@ -286,7 +286,7 @@ function checkCollectables(_coin)
     if(dist(gameChar_x, gameChar_y-40, _coin.x_pos, _coin.y_pos) < 30 )
     {
         _coin.isFound = true;
-        coinSound.play();
+//        coinSound.play();
         game_score +=1;
     }
 }
@@ -348,7 +348,7 @@ function renderFlagpole()
             else
             {
                 youWin = true;
-                winSound.play();
+//                winSound.play();
              }
         }
     
@@ -623,7 +623,7 @@ function renderCharacter()
                 {
                     if(lives > 1)
                         {
-                            loseSound.play();
+//                            loseSound.play();
                             lives -= 1;
                             resetCharacter();
                         }
@@ -632,7 +632,7 @@ function renderCharacter()
                             lives = 0;
                             isGameOver = true;
                             resetCharacter();
-                            gameOverSound.play();
+//                            gameOverSound.play();
                         }
                 }
             return;  
