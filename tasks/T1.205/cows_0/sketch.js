@@ -21,6 +21,8 @@ function FlyingSaucer(x,y)
     var num_lights = floor(random(5,25));
     var light_inc = floor(random(5,10));
     var brightnesses = [];
+
+    var self = this;
     
     
     ///////////methods/////////////
