@@ -1,10 +1,14 @@
-var charPos_x = 350
-var charPos_y = 250
+var charPos_x;
+var charPos_y;
+var head_size;
 
 function setup()
 {
     createCanvas(1200,600);
-    noStroke();
+
+    charPos_x = width/2;
+    charPos_y = 250;
+    head_size = random(0.8,1.3);
 }
 
 function draw()
@@ -15,23 +19,35 @@ function draw()
     fill(0,50,0);
     rect(0,height - 100, width, 100);
 
+    noStroke();
+    //light
+    fill(255,255,255,150);
+    ellipse(charPos_x, charPos_y-50,70,80);  
+
     //hands
-    stroke(charPos_x,150,150);
+    stroke(0);
     strokeWeight(5);
     line(charPos_x - 22, charPos_y - 30,  
         charPos_x - 22+44,charPos_y - 30);
-    noStroke();
+
+    stroke(0);
+    strokeWeight(2);
 
     //body
     fill(255,0,0);
     rect(charPos_x - 13, charPos_y - 40, 26,35);
 
     //head
-    fill(charPos_x,150,150);
-    ellipse(charPos_x, charPos_y - 50,35);
+    fill(250,150,150);
+    ellipse(charPos_x, charPos_y - 50,35*head_size);
 
     //legs
     fill(0);
     rect(charPos_x - 15, charPos_y - 8, 10,10)
     rect(charPos_x + 5, charPos_y - 8, 10,10)
+
+    charPos_x += random(1,-1);
+    charPos_y += random(-1,1);
+
+
 }
