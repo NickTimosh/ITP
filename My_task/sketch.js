@@ -1,14 +1,15 @@
-var charPos_x;
-var charPos_y;
-var head_size;
+var character;
 
 function setup()
 {
     createCanvas(1200,600);
 
-    charPos_x = width/2;
-    charPos_y = 250;
-    head_size = random(0.8,1.3);
+    character = {
+        x: width/2,
+        y: 250,
+        head_size: random(1.0,1.3),
+        body_color: [random(0,255), random(0,255),random(0,255)]
+    }
 }
 
 function draw()
@@ -22,32 +23,32 @@ function draw()
     noStroke();
     //light
     fill(255,255,255,150);
-    ellipse(charPos_x, charPos_y-50,70,80);  
+    ellipse(character.x, character.y-50,70,80);  
 
     //hands
     stroke(0);
     strokeWeight(5);
-    line(charPos_x - 22, charPos_y - 30,  
-        charPos_x - 22+44,charPos_y - 30);
+    line(character.x - 22, character.y - 30,  
+        character.x - 22+44,character.y - 30);
 
     stroke(0);
     strokeWeight(2);
 
     //body
-    fill(255,0,0);
-    rect(charPos_x - 13, charPos_y - 40, 26,35);
+    fill(character.body_color);
+    rect(character.x - 13, character.y - 40, 26,35);
 
     //head
     fill(250,150,150);
-    ellipse(charPos_x, charPos_y - 50,35*head_size);
+    ellipse(character.x, character.y - 50,35*character.head_size);
 
     //legs
     fill(0);
-    rect(charPos_x - 15, charPos_y - 8, 10,10)
-    rect(charPos_x + 5, charPos_y - 8, 10,10)
+    rect(character.x - 15, character.y - 8, 10,10)
+    rect(character.x + 5, character.y - 8, 10,10)
 
-    charPos_x += random(1,-1);
-    charPos_y += random(-1,1);
+    character.x += random(1,-1);
+    character.y += random(-1,1);
 
 
 }
