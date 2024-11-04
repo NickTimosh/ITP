@@ -1,15 +1,16 @@
 var character;
+var characters;
 
 function setup()
 {
     createCanvas(1200,600);
+    characters = [];
 
-    character = {
-        x: width/2,
-        y: 250,
-        head_size: random(1.0,1.3),
-        body_color: [random(0,255), random(0,255),random(0,255)]
+    for(var i = 0; i < 6; i++)
+    {
+        characters.push(new Character(100 + i*250,200));
     }
+
 }
 
 function draw()
@@ -20,35 +21,93 @@ function draw()
     fill(0,50,0);
     rect(0,height - 100, width, 100);
 
-    noStroke();
-    //light
-    fill(255,255,255,150);
-    ellipse(character.x, character.y-50,70,80);  
+    for(var i = 0; i < characters.length; i++)
+    {
+        if(characters[i].beam_on)
+        {
+            characters[i].beam();
+        }
+        
+        characters[i].hover();
+        characters[i].draw();
+    }
 
-    //hands
-    stroke(0);
-    strokeWeight(5);
-    line(character.x - 22, character.y - 30,  
-        character.x - 22+44,character.y - 30);
+}
 
-    stroke(0);
-    strokeWeight(2);
+function Character(x, y)
+{
+        this.x = x;
+        this.y = y;
+        this.head_size = random(1.0,1.3);
+        this.body_color = [random(0,255), random(0,255),random(0,255)];
+        this.beam_on = false;
+        this.hover = function()
+        {
+            this.x += random(1,-1);
+            this.y += random(-1,1);
 
-    //body
-    fill(character.body_color);
-    rect(character.x - 13, character.y - 40, 26,35);
+            if(this.beam_on == false && random() > 0.99)
+            {
+                this.beam_on = true;
+            }            
+            else if(this.beam_on == true && random() > 0.95)
+            {
+                this.beam_on = false;
+            }
 
-    //head
-    fill(250,150,150);
-    ellipse(character.x, character.y - 50,35*character.head_size);
+        };
+        this.beam = function()
+        {
+                fill(255,255,100,150);
+                triangle(
+                    this.x-30, this.y+6, 
+                    this.x-30-25, height - 100,
+                    this.x-30+25, height - 100)
+        };
 
-    //legs
-    fill(0);
-    rect(character.x - 15, character.y - 8, 10,10)
-    rect(character.x + 5, character.y - 8, 10,10)
+        this.draw = function()
+        {
+            noStroke();
+            //light
+            fill(255,255,255,150);
+            ellipse(this.x, this.y-50,70,80);  
 
-    character.x += random(1,-1);
-    character.y += random(-1,1);
+            //hands
+            stroke(0);
+            strokeWeight(5);
+            line(this.x - 22, this.y - 30,  
+                this.x - 22+44,this.y - 30);
 
+            stroke(0);
+            strokeWeight(2);
 
+            //tool
+            fill(0);
+            stroke(0);
+            strokeWeight(5);
+            rect(this.x - 25, this.y-40,  
+                -10,50);
+        
+            stroke(0);
+            strokeWeight(2);
+
+            //body
+            fill(this.body_color);
+            rect(this.x - 13, this.y - 40, 26,35);
+
+            //head
+            fill(250,150,150);
+            ellipse(this.x, this.y - 50,35*this.head_size);
+
+            //legs
+            fill(0);
+            rect(this.x - 15, this.y - 8, 10,10)
+            rect(this.x + 5, this.y - 8, 10,10)
+
+            this.hover();
+            if(this.beam_on == true)
+            {
+                this.beam();
+            }
+        }
 }
