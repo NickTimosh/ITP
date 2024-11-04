@@ -1,5 +1,11 @@
 var character;
 var characters;
+var img;
+
+function preload() 
+{
+    img = loadImage('3-body-problem-schriftzug.jpg');
+}
 
 function setup()
 {
@@ -15,8 +21,9 @@ function setup()
 
 function draw()
 {
-    background(50,100,200);
-    
+    background(0);
+    image(img, 10, 10, width/9, height/9);
+
     //draw the ground
     fill(0,50,0);
     rect(0,height - 100, width, 100);
@@ -60,7 +67,7 @@ function Character(x, y)
         {
                 fill(255,255,100,150);
                 triangle(
-                    this.x-30, this.y+6, 
+                    this.x-30, this.y+10, 
                     this.x-30-25, height - 100,
                     this.x-30+25, height - 100)
         };
@@ -73,7 +80,7 @@ function Character(x, y)
             ellipse(this.x, this.y-50,70,80);  
 
             //hands
-            stroke(0);
+            stroke(250,150,150);
             strokeWeight(5);
             line(this.x - 22, this.y - 30,  
                 this.x - 22+44,this.y - 30);
@@ -82,9 +89,8 @@ function Character(x, y)
             strokeWeight(2);
 
             //tool
-            fill(0);
-            stroke(0);
-            strokeWeight(5);
+            fill(255,0,0);
+            noStroke();
             rect(this.x - 25, this.y-40,  
                 -10,50);
         
@@ -100,7 +106,7 @@ function Character(x, y)
             ellipse(this.x, this.y - 50,35*this.head_size);
 
             //legs
-            fill(0);
+            fill(250,150,150);
             rect(this.x - 15, this.y - 8, 10,10)
             rect(this.x + 5, this.y - 8, 10,10)
 
