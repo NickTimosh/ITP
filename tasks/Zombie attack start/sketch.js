@@ -25,15 +25,19 @@ function setup() {
 
 	//create a new horde and add zombies
 	horde = new Horde();
-	horde.addZombies(7);
+	horde.addZombies(2);
 
 }
 
 function draw() {
 	background(77, 112, 107);
-	this.horde.drawZombies();
+	horde.drawZombies();
 
 }
 
+function mousePressed()
+{
+	horde.checkClicks();
+}
 
 

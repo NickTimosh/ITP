@@ -17,4 +17,13 @@ function Horde() {
 			this.zombies.push(new Zombie(random(20, height - 50)))
 		}
 	}
+
+	// click
+	this.checkClicks = function()
+	{
+		for(var i = 0; i < this.zombies.length; i++)
+		{
+			this.zombies[i].checkClick();
+		}
+	}
 }
