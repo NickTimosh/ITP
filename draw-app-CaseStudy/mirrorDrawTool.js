@@ -22,7 +22,7 @@ function mirrorDrawTool() {
 
 	this.draw = function() {
 		//display the last save state of pixels
-		updatePixels();
+		// updatePixels();
 
 		//do the drawing if the mouse is pressed
 		if (mouseIsPressed) {
