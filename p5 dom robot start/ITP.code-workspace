@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../p5 dom robot start"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ITP"
+	}
+}
