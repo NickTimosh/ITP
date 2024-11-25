@@ -50,7 +50,14 @@ function ControlsAndInput(){
 
 	this.menu = function(){
 		//draw out menu items for each visualisation
-		//???
+		
+		for(var i = 0; i < vis.visuals.length; i++)
+		{
+			fill(255);
+			textSize(25);
+			n = i+1
+			text(n + ": " +  vis.visuals[i].name, 150, 70 + 30*i)
+		}
 	};
 }
 
