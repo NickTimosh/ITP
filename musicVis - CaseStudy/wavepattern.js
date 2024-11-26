@@ -24,5 +24,8 @@ function WavePattern(){
 
 		endShape();
 		pop();
+
+		fill(255);
+		ellipse(width/2, height/2, y/2)
 	};
 }

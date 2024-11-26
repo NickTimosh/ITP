@@ -9,9 +9,14 @@ function ControlsAndInput(){
 
 	//make the window fullscreen or revert to windowed
 	this.mousePressed = function(){
-		//???
 		//check if the playback button has been clicked
+		let isClicked = this.playbackButton.hitCheck();
 		//if not make the visualisation fullscreen
+		if(!isClicked)
+		{
+			let fs = fullscreen();
+			fullscreen(!fs);
+		}
 	};
 
 	//responds to keyboard presses
@@ -50,7 +55,12 @@ function ControlsAndInput(){
 
 	this.menu = function(){
 		//draw out menu items for each visualisation
-		//???
+		for(var i = 0; i <= vis.visuals.length; i++)
+		{
+			textSize(25);
+			fill(255); 
+			text(i + 1 + ": " + vis.visuals[i].name, 100, 60 + 30 * i)
+		}
 	};
 }
 

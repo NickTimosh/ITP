@@ -6,11 +6,15 @@ function Spectrum(){
 		var spectrum = fourier.analyze();
 		noStroke();
 		
-		fill(0,255,0)
 		for (var i = 0; i< spectrum.length; i++){
-			var x = map(i, 0, spectrum.length, 0, width);
-		    var h = -height + map(spectrum[i], 0, 255, height, 0);
-		    rect(x, height, width / spectrum.length, h );
+			var r = spectrum[i];
+			var g = map(spectrum[i], 0, 255,255,0);
+			var b = 0;
+
+			fill(r,g,b);
+			var y = map(i, 0, spectrum.length, 50, height);
+		    var w = map(spectrum[i], 0, 255, 0, width)
+		    rect(0, y, w, height / spectrum.length);
   		}
 	
 		pop();
