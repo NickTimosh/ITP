@@ -8,7 +8,7 @@ var sound = null;
 var fourier;
 
 function preload(){
-	sound = loadSound('assets/stomper_reggae_bit.mp3');
+	sound = loadSound('assets/Good_bye_v5.mp3');
 }
 
 function setup(){
@@ -29,6 +29,10 @@ function setup(){
 
 function draw(){
 	background(0);
+	
+	fill(255);
+	textSize(22);
+	text("Now playing: Good buy v5 by Roman H", 50, 20)
 	//draw the selected visualisation
 	vis.selectedVisual.draw();
 	//draw the controls on top.
