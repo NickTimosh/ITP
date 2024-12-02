@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "ITP",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Wendy Music Visualizer"
+	}
+}
