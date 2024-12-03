@@ -164,10 +164,10 @@ function ClimateChange() {
         noStroke();
         fill(this.mapTemperatureToColour(current.temperature));
         rect(
-            this.mapYearToWidth(current.year),
-            this.layout.topMargin,
-            this.layout.marginSize,
-            this.layout.bottomMargin
+            this.mapYearToWidth(current.year)-this.layout.pad,
+            this.layout.bottomMargin,
+            segmentWidth,
+            - this.layout.bottomMargin + this.layout.marginSize
           );
 
         // Draw line segment connecting previous year to current

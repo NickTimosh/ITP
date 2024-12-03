@@ -73,19 +73,44 @@ function PayGapByJob2017() {
     var numJobsMin = min(numJobs);
     var numJobsMax = max(numJobs);
 
-    fill(255);
+    fill(255,100);
     stroke(0);
     strokeWeight(1);
 
     for (i = 0; i < this.data.getRowCount(); i++) {
       // Draw an ellipse for each point.
-      // x = propFemale
-      // y = payGap
-      // size = numJobs
-      ellipse(
-        /// ???
-      );
-    }
+      var x = map(propFemale[i], 
+              propFemaleMin,
+              propFemaleMax,
+              this.pad,   
+              width - this.pad
+            );
+
+      var y = map(payGap[i],
+              payGapMin,
+              payGapMax,
+              height - this.pad,
+              this.pad
+            );
+
+      var size = map(numJobs[i],
+              numJobsMin,
+              numJobsMax,
+              this.dotSizeMin,   
+              this.dotSizeMax
+            );
+ 
+
+      ellipse(x,y,size)
+
+      console.log(propFemaleMax)
+
+                  //  + this.propFemaleMax + 
+                  //  + 
+                  // (width - this.pad))
+          }
+
+
   };
 
   this.addAxes = function () {
@@ -103,4 +128,5 @@ function PayGapByJob2017() {
          width - this.pad,
          height / 2);
   };
+
 }
